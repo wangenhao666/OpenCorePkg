@@ -125,8 +125,8 @@ jobs:
           path: Binaries/*.zip
 
   build-windows:
-    name: Build Windows VS2019
-    runs-on: windows-2019
+    name: Build Windows VS2022
+    runs-on: windows-latest
     env:
       HAS_OPENSSL_BUILD: 0
       CC: gcc
@@ -144,9 +144,12 @@ jobs:
       - name: CI Bootstrap
         run: |
           src=$(curl -Lfs https://raw.githubusercontent.com/acidanthera/ocbuild/master/ci-bootstrap.sh) && eval "$src" || exit 1
+      
+      - name: Run vswhere for testing
+      - run: vswhere.exe
 
-      - run: ./build_duet.tool
-      - run: ./build_oc.tool
+      # - run: ./build_duet.tool
+      # - run: ./build_oc.tool
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v2
