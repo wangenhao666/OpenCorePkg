@@ -146,7 +146,7 @@ jobs:
           src=$(curl -Lfs https://raw.githubusercontent.com/acidanthera/ocbuild/master/ci-bootstrap.sh) && eval "$src" || exit 1
       
       - name: Run vswhere for testing
-      - run: vswhere.exe
+        run: vswhere.exe
 
       # - run: ./build_duet.tool
       # - run: ./build_oc.tool
