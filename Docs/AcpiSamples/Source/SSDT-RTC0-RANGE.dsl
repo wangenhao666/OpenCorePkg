@@ -13,15 +13,15 @@
  */
 DefinitionBlock ("", "SSDT", 2, "ACDT", "RtcRange", 0x00000000)
 {
-    External (_SB_.PC00.LPC0, DeviceObj)
-    External (_SB_.PC00.LPC0.RTC_, DeviceObj)
+    External (_SB_.PCI0.LPC0, DeviceObj)
+    Scope (_SB.PCI0.LPC0.RTC)
 
-    Scope (_SB.PC00.LPC0)
+    Scope (_SB.PCI0.LPC0)
     {
        /* 
         * Uncomment below if your ACPI doesn't have an AWAC device(ACPI000E)
         */
-       /*
+
         Scope (RTC)
         {
             Method (_STA, 0, NotSerialized)  // _STA: Status
@@ -36,8 +36,8 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "RtcRange", 0x00000000)
                 }
             }
         }
-        */
-        
+
+
         Device (RTC0)
         {
            /*
